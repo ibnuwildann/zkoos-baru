@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+    <window title="Selected Data" border="normal" width="300px">
+        <!-- Add components to display the selected data -->
+        <label value="Name:"/>
+        <label id="nameLabel"/>
+        <label value="Email:"/>
+        <label id="emailLabel"/>
+    </window>
+</zk>

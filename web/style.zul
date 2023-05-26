@@ -1,0 +1,24 @@
+<zk>
+    <listbox id="bookList" model="@load(vm.bookListModel)">
+        <listhead>
+            <listheader label="Title" />
+            <listheader label="Author" />
+            <listheader label="Actions" />
+        </listhead>
+        <template name="model">
+            <listitem>
+                <listcell label="@load(each.title)" />
+                <listcell label="@load(each.author)" />
+                <listcell>
+                    <button label="Edit" onClick="@command('edit', each)" />
+                    <button label="Delete" onClick="@command('delete', each)" />
+                </listcell>
+            </listitem>
+        </template>
+    </listbox>
+    <hbox>
+        <textbox placeholder="Title" value="@bind(vm.currentBook.title)" />
+        <textbox placeholder="Author" value="@bind(vm.currentBook.author)" />
+        <button label="Add" onClick="@command('add')" />
+    </hbox>
+</zk>

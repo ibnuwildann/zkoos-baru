@@ -1,0 +1,64 @@
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" ?>
+<zk>
+<style src="/styles.css" />
+<window apply="foo.viewmodel" id="win" use="data.controller">
+<groupbox id="gb" mold="3d" width="650px">
+  <caption label="Form input"/>
+    <grid width="full-width">
+      <rows>
+        <row  valign="middle">
+           <label value="Name:"/>
+           <textbox id="nametxt" width="200px" sclass="my-input" value="@load(vm.selectedData)" />
+        </row>
+        <row>
+           <label value="Email:" />
+           <textbox id="emailtxt" width="200px" sclass="my-input" value="@load(vm.selectedData)"/>
+        </row>
+        <row>
+            <label value="Address:" />
+            <textbox id="addresstxt" width="200px" sclass="my-input" value="@load(vm.selectedData)"/>
+        </row>
+        <row>
+            <label value="Phone:" />
+            <textbox id="phonetxt" width="200px" sclass="my-input" value="@load(vm.selectedData)"/>
+        </row>
+        <row>
+           <button id="add" label="Submit" sclass="save-button"/>
+           <button id="deleteButton" sclass="delete-button" label="Delete" onClick="@command(deleteData)" />
+        </row>
+      </rows>
+    </grid>
+</groupbox>
+<groupbox id="gb1" mold="3d" width="full-width">
+    <caption label="Data"/>   
+    <listbox id="lb" width="200" height="300" onClick="@command(showPopup)">
+    <listhead>
+        <listheader label="ID" sort="auto"/>
+        <listheader label="Nama"/>   
+        <listheader label="email"/>
+        <listheader label="Address"/>
+        <listheader label="Phone"/>
+        <listheader label="Action"/>
+    </listhead>
+    <listitem forEach="${win.customers}" value="${each}">
+        <listcell label="${each.id}"/>    
+        <listcell label="${each.nama}"/>
+        <listcell label="${each.email}"/>
+        <listcell label="${each.address}"/>
+        <listcell label="${each.phone}"/>
+                   
+    </listitem>
+    
+    </listbox>
+</groupbox>
+    <popup id="popup" width="300px" height="200px">
+        <label value="Selected Data"/>
+        <label value="${each.nama}"/>
+        <label id="nameLabel"/>
+        <label value="${each.email}"/>
+        <label id="emailLabel"/>
+    </popup>
+
+
+</window>
+</zk>
